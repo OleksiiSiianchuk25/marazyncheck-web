@@ -1,0 +1,27 @@
+.footer {
+    margin-top: auto;
+    background-color: #19323C;
+    color: #F2545B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.shop-name {
+    font-size: 38px;
+    cursor: pointer;
+}
+
+.shop-name:hover {
+    color: #A93F55;
+}
+
+.telegram-icon img {
+    height: 42px;
+    width: 42px;
+    margin-left: 14px;
+    margin-top: 7px;
+    cursor: pointer;
+}

@@ -1,0 +1,106 @@
+.navbar {
+    width: 100%;
+    background: #19323C;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px 0 56px;
+    height: auto;
+}
+
+.logo-container {
+    color: #fff;
+    cursor: pointer;
+}
+
+.logo {
+    height: 120px;
+    width: 150px;
+}
+
+.navbar-text {
+    font-size: 26px;
+    color: #F2545B;
+}
+
+.navbar-text:hover {
+    color: #A93F55;
+    cursor: pointer;
+}
+
+.navbar-icons-list {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.navbar-icons {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0px;
+    padding-left: 0;
+}
+
+.shopping-basket {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.help-question, .user-circle {
+    margin-left: 37px;
+    cursor: pointer;
+}
+
+.navbar-icon img {
+    height: 42px;
+    width: 42px;
+}
+
+.navbar-icon:hover {
+    color: #A93F55;
+}
+
+.search-icon {
+    height: 26px;
+    width: 26px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 400px; 
+    width: 100%; 
+}
+
+.search-box input {
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+.search-box input::placeholder {
+    color: #7D8CA3;
+}
+
+.search-box img {
+    margin-left: 42px;
+    cursor: pointer;
+}
+
+.search-box img:hover {
+    color: #A93F55;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+    }
+}
