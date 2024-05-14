@@ -100,6 +100,12 @@
     color: #A93F55;
 }
 
+.navbar a, .navbar a img {
+    text-decoration: none; /* Removes underline from text links */
+    border: none; /* Removes border from images within links */
+    outline: none; /* Removes focus outline from links */
+}
+
 @media (max-width: 768px) {
     .navbar {
         padding: 0 20px;
