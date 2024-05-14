@@ -7,10 +7,18 @@
     align-items: center;
     height: 100px;
     width: 100%;
+    text-decoration: none;
+}
+
+a, img {
+    text-decoration: none; /* Removes underline from text links */
+    border: none; /* Removes border from images within links */
+    outline: none; /* Removes focus outline from links */
 }
 
 .shop-name {
     font-size: 38px;
+    color: #F2545B;
     cursor: pointer;
 }
 

@@ -1,0 +1,83 @@
+.shop-main-content {
+    margin: 70px 80px;
+    display: flex;
+    flex-direction: row; 
+    color: #19323C;
+    font-family: Arial, sans-serif; /* Ensure a consistent font */
+}
+
+.filter-column {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    background: #f9f9f9; /* Light grey background for distinction */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.filter-menu-header, .type-header {
+    font-weight: bold;
+}
+
+.filter-menu-header {
+    font-size: 24px; /* Slightly smaller for a more professional look */
+    margin-bottom: 20px;
+}
+
+.type-header {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Custom styled checkboxes */
+input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* Style tweaks for checkboxes */
+input[type="checkbox"] + span {
+    padding-left: 5px;
+}
+
+
+.goods-column {
+    flex: 3; /* Give more space to products */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns of equal size */
+    grid-gap: 20px; /* Space between cards */
+    align-items: start;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.buy-button {
+    background-color: #f04e30; /* A red button, could be your brand color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #c03d28; /* Darker shade for hover effect */
+}
