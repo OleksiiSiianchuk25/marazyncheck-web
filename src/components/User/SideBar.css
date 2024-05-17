@@ -1,0 +1,22 @@
+.sidebar {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    margin-right: 20px;
+    padding: 20px;
+    background: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-self: flex-start;
+}
+
+.link-sidebar {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #F2545B;
+}
+
+.link-sidebar:hover {
+    color: #A93F55;
+}

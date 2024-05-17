@@ -15,6 +15,7 @@
     background: #f9f9f9; /* Light grey background for distinction */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    align-self: flex-start;
 }
 
 .filter-menu-header, .type-header {
@@ -72,7 +73,7 @@ input[type="checkbox"] + span {
 }
 
 .buy-button {
-    background-color: #f04e30; /* A red button, could be your brand color */
+    background-color: #F2545B; /* A red button, could be your brand color */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -81,5 +82,5 @@ input[type="checkbox"] + span {
 }
 
 .buy-button:hover {
-    background-color: #c03d28; /* Darker shade for hover effect */
+    background-color: #A93F55; /* Darker shade for hover effect */
 }

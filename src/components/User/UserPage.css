@@ -1,0 +1,23 @@
+.user-main-content {
+    margin: 70px 80px;
+    display: flex;
+    flex-direction: row; 
+    color: #19323C;
+    font-family: Arial, sans-serif; 
+}
+
+.info-content {
+    flex: 2 1;
+    border: solid;
+    border-radius: 10px;
+    border-color: #19323C;
+}
+
+.user-info {
+    padding: 0 15px;
+}
+
+.user-info-header {
+    font-size: 30px;
+    color: #19323C;
+}
