@@ -1,14 +1,35 @@
-import React from "react";
-import './NavBar.css'
-import logo  from "../../Images/NavBarAndFooter/logo.png"
-import search_icon from "../../Images/NavBarAndFooter/search-icon.png"
-import help_question from "../../Images/NavBarAndFooter/help-question.png"
-import user_circle from "../../Images/NavBarAndFooter/user-circle.png"
-import shopping_basket from "../../Images/NavBarAndFooter/shopping-basket.png"
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import './NavBar.css';
+import logo from "../../Images/NavBarAndFooter/logo.png";
+import search_icon from "../../Images/NavBarAndFooter/search-icon.png";
+import help_question from "../../Images/NavBarAndFooter/help-question.png";
+import user_circle from "../../Images/NavBarAndFooter/user-circle.png";
+import shopping_basket from "../../Images/NavBarAndFooter/shopping-basket.png";
+import { Link, useNavigate } from 'react-router-dom';
 
+interface NavProps {
+    onSearch: (query: string) => void;
+}
 
-const Nav: React.FC<{}> = () => {
+const NavBar: React.FC<NavProps> = ({ onSearch }) => {
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const query = event.target.value;
+        setSearchQuery(query);
+    };
+
+    const handleSearch = () => {
+        onSearch(searchQuery);
+        navigate('/');
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    };
 
     return (
         <nav className='navbar'>
@@ -25,8 +46,19 @@ const Nav: React.FC<{}> = () => {
             </div>
 
             <div className="search-box">
-                <input type="text" placeholder="Я шукаю..."/>
-                <img src={search_icon} alt="Search icon" className='search-icon'/>
+                <input 
+                    type="text" 
+                    placeholder="Я шукаю..." 
+                    value={searchQuery} 
+                    onChange={handleInputChange} 
+                    onKeyDown={handleKeyDown}
+                />
+                <img 
+                    src={search_icon} 
+                    alt="Search icon" 
+                    className='search-icon' 
+                    onClick={handleSearch}
+                />
             </div>
 
             <div className="navbar-icons-list">
@@ -40,12 +72,14 @@ const Nav: React.FC<{}> = () => {
                         </Link>
                     </li>
                     <li className="navbar-icon">
-                        <img src={user_circle} alt="User circle" className='user-circle'/>
+                        <Link to="/user">
+                            <img src={user_circle} alt="User circle" className='user-circle'/>
+                        </Link>
                     </li>
                 </ul>
             </div>
         </nav>
-    )
+    );
 }
 
-export default Nav;
+export default NavBar;
