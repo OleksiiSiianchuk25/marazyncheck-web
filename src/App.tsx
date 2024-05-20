@@ -1,34 +1,47 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/Nav/NavBar';
 import Footer from './components/Footer/Footer';
 import ShopMain from './components/Shop/ShopMain';
 import Faq from './components/FAQ/Faq';
 import UserPage from './components/User/UserPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './components/User/Login';
+import Register from './components/User/Register';
+import ProtectedRoute from './components/User/ProtectedRoute';  // Import the ProtectedRoute component
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const location = useLocation();
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
 
-  return (
-    <Router>
-      <div className='App'>
-        <NavBar onSearch={handleSearch} />
-        <Routes>
-          <Route path="/" element={<ShopMain searchQuery={searchQuery} />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/user" element={<UserPage />}/>
-          <Route path="/order-history" element={<UserPage />}/>
-          <Route path="/logout" element={<UserPage />}/>
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+  const noNavBarFooterPaths = ['/login', '/register'];
 
-export default App;
+  return (
+    <div className='App'>
+      {!noNavBarFooterPaths.includes(location.pathname) && <NavBar onSearch={handleSearch} />}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<ShopMain searchQuery={searchQuery} />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/order-history" element={<UserPage />} />
+          </Route>
+        </Routes>
+      {!noNavBarFooterPaths.includes(location.pathname) && <Footer />}
+    </div>
+  );
+};
+
+const AppWrapper: React.FC = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default AppWrapper;

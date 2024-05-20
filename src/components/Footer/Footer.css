@@ -1,5 +1,5 @@
+/* Footer.css */
 .footer {
-    margin-top: auto;
     background-color: #19323C;
     color: #F2545B;
     display: flex;
@@ -8,28 +8,30 @@
     height: 100px;
     width: 100%;
     text-decoration: none;
-}
-
-a, img {
+    margin-top: auto; /* Ensure it sticks to the bottom */
+  }
+  
+  a, img {
     text-decoration: none; /* Removes underline from text links */
     border: none; /* Removes border from images within links */
     outline: none; /* Removes focus outline from links */
-}
-
-.shop-name {
+  }
+  
+  .shop-name {
     font-size: 38px;
     color: #F2545B;
     cursor: pointer;
-}
-
-.shop-name:hover {
+  }
+  
+  .shop-name:hover {
     color: #A93F55;
-}
-
-.telegram-icon img {
+  }
+  
+  .telegram-icon img {
     height: 42px;
     width: 42px;
     margin-left: 14px;
     margin-top: 7px;
     cursor: pointer;
-}
+  }
+  
