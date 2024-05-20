@@ -15,6 +15,22 @@
     padding-top: 10px;
     font-size: 20px;
     color: #F2545B;
+    border: none;
+    background: none;
+}
+
+.link-sidebar-button {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #F2545B;
+    border: none;
+    background: none;
+    padding-left: 0;
+}
+
+.link-sidebar-button:hover {
+    color: #A93F55;
 }
 
 .link-sidebar:hover {
