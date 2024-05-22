@@ -45,8 +45,10 @@
 }
 
 .shopping-basket {
-    margin-left: 0;
-    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    /* margin-left: 0;
+    margin-bottom: 5px; */
 }
 
 .help-question, .user-circle {
@@ -101,9 +103,22 @@
 }
 
 .navbar a, .navbar a img {
-    text-decoration: none; /* Removes underline from text links */
-    border: none; /* Removes border from images within links */
-    outline: none; /* Removes focus outline from links */
+    text-decoration: none;
+    border: none; 
+    outline: none;
+}
+
+.cart-count {
+    position: absolute;
+    background-color: #F2545B;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+    min-width: 20px;
+    text-align: center;
+    max-width: 30px;
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {

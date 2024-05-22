@@ -46,7 +46,7 @@ class AuthService {
 
   logout(navigate: (path: string) => void): void {
     localStorage.removeItem('user');
-    navigate('/login'); // Redirect to login page
+    navigate('/login'); 
   }
 }
 

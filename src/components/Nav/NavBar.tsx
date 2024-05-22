@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 import './NavBar.css';
 import logo from "../../Images/NavBarAndFooter/logo.png";
 import search_icon from "../../Images/NavBarAndFooter/search-icon.png";
@@ -14,6 +16,9 @@ interface NavProps {
 const NavBar: React.FC<NavProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
+    const cartItemsCount = useSelector((state: RootState) => state.cart.items.reduce((acc, item) => acc + item.quantity, 0));
+
+    const displayCount = cartItemsCount > 99 ? '99+' : cartItemsCount; 
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const query = event.target.value;
@@ -38,13 +43,11 @@ const NavBar: React.FC<NavProps> = ({ onSearch }) => {
                     <img src={logo} alt="Logo" className='logo'/>
                 </Link>
             </div>
-
             <div>
                 <Link to="/">
                     <span className="navbar-text">Магазин</span>
                 </Link>
             </div>
-
             <div className="search-box">
                 <input 
                     type="text" 
@@ -60,11 +63,13 @@ const NavBar: React.FC<NavProps> = ({ onSearch }) => {
                     onClick={handleSearch}
                 />
             </div>
-
             <div className="navbar-icons-list">
                 <ul className="navbar-icons">
                     <li className="navbar-icon">
-                        <img src={shopping_basket} alt="Shopping basket" className='shopping-basket'/>
+                        <Link to="/cart">
+                            <img src={shopping_basket} alt="Shopping basket" className='shopping-basket'/>
+                            {cartItemsCount > 0 && <span className="cart-count">{displayCount}</span>}
+                        </Link>
                     </li>
                     <li className="navbar-icon">
                         <Link to="/faq">

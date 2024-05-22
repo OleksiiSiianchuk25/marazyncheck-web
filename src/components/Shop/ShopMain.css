@@ -84,3 +84,10 @@ input[type="checkbox"] + span {
 .buy-button:hover {
     background-color: #A93F55; /* Darker shade for hover effect */
 }
+
+
+.buy-button.disabled {
+    background-color: #7D8CA3;
+    color: white;
+    cursor: not-allowed;
+}
