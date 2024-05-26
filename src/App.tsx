@@ -13,6 +13,11 @@ import ProtectedRoute from './components/User/ProtectedRoute';
 import './App.css';
 import CartPage from './components/Cart/CartPage';
 import { PersistGate } from 'redux-persist/integration/react';
+import AdminRoute from './components/Admin/AdminRoute'; // Ensure the path is correct
+import UsersAdminPage from './components/Admin/UsersAdminPage';
+import OrdersAdminPage from './components/Admin/OrdersAdminPage';
+import ProductAdminPage from './components/Admin/ProductAdminPage';
+import UserOrdersPage from './components/User/UserOrdersPage';
 
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -27,8 +32,8 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <div className='App'>
-        {!noNavBarFooterPaths.includes(location.pathname) && <NavBar onSearch={handleSearch} />}
+        <div className='App'>
+          {!noNavBarFooterPaths.includes(location.pathname) && <NavBar onSearch={handleSearch} />}
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -36,16 +41,23 @@ const App: React.FC = () => {
               <Route path="/" element={<ShopMain searchQuery={searchQuery} />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/user" element={<UserPage />} />
-              <Route path="/order-history" element={<UserPage />} />
+              <Route path="/order-history" element={<UserOrdersPage />} />
               <Route path='/cart' element={<CartPage/>}/>
+              {/* Admin specific routes wrapped within AdminRoute */}
+              <Route element={<AdminRoute />}>
+                <Route path="/admin/users" element={<UsersAdminPage />} />
+                <Route path="/admin/orders" element={<OrdersAdminPage />} />
+                <Route path="/admin/products" element={<ProductAdminPage />} />
+              </Route>
             </Route>
           </Routes>
-        {!noNavBarFooterPaths.includes(location.pathname) && <Footer />}
-      </div>
+          {!noNavBarFooterPaths.includes(location.pathname) && <Footer />}
+        </div>
       </PersistGate>
     </Provider>
   );
 };
+
 
 const AppWrapper: React.FC = () => (
   <Router>

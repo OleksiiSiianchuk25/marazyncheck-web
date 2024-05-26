@@ -1,13 +1,13 @@
 .sidebar {
-    flex: 1;
     flex-direction: column;
     display: flex;
-    margin-right: 20px;
+    margin-right: 30px;
     padding: 20px;
     background: #f9f9f9; 
     border-radius: 10px; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     align-items:flex-start;
+    align-self: flex-start;
 }
 
 .link-sidebar {

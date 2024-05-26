@@ -50,9 +50,13 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
         dispatch(addToCart({ product, quantity: 1 }));
     };
 
+    const getUnit = (categoryId: number) => {
+        return categoryId === 9 || categoryId === 10 ? 'л' : 'г';
+    };
+
     return (
         <div className="shop-main-content">
-                <div className="filter-column">
+            <div className="filter-column">
                 <h1 className="filter-menu-header">Фільтри</h1>
                 <h2 className="type-header">Снеки</h2>
                 <label><input type="checkbox" onChange={(e) => handleCategoryChange(1, e.target.checked)} checked={tempSelectedCategories.includes(1)}/><span>чипси</span></label>
@@ -73,8 +77,10 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
                 {filteredProducts.map(product => (
                     <div key={product.id} className="product-card">
                         <img className="product-image" src={product.imageUrl} alt={product.name} />
-                        <div>{product.name}</div>
                         <div>₴{product.price}</div>
+                        <div>{product.quantity > 0 ? 'У наявності' : 'Немає в наявності'}</div>
+                        <div>{product.name}</div>
+                        <div>{product.weightOrVolume} {getUnit(product.categoryId)}</div>
                         <button 
                             className={`buy-button ${product.quantity === 0 ? 'disabled' : ''}`}
                             onClick={() => handleAddToCart(product)}

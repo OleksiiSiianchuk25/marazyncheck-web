@@ -1,0 +1,97 @@
+.order-table-content {
+    margin: 70px 80px;
+    display: flex;
+    flex-direction: row; 
+    color: #19323C;
+    font-family: Arial, sans-serif; 
+}
+
+.order-content {
+    flex: 2 1;
+    border: solid;
+    border-radius: 10px;
+    border-color: #19323C;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 15px; 
+    border-bottom: 1px solid #ccc; 
+}
+
+th {
+    background-color: #19323C;
+    color: white;
+    cursor: pointer; /* Indicates that the header is clickable */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Adds a light gray background to even rows */
+}
+
+tr:hover {
+    background-color: #ddd; /* Adds a hover effect for rows */
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+    background-color: #A93F55;
+}
+
+.pagination {
+    padding: 10px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pagination button {
+    background-color: #A93F55;
+    margin: 0 5px;
+}
+
+.pagination button:hover {
+    background-color: #F2545B;
+}
+
+
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: white;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    width: 50%;
+  }
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  

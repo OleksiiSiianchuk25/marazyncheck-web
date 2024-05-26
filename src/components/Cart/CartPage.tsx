@@ -26,12 +26,12 @@ const CartPage: React.FC = () => {
 
   const handlePlaceOrder = async () => {
     if (cartItems.length === 0) {
-      alert("Your cart is empty!");
+      alert("Ваш кошик порожній!");
       return;
     }
-    const currentUser = AuthService.getCurrentUser(); // Get the current user with the token
+    const currentUser = AuthService.getCurrentUser(); 
     if (!currentUser || !currentUser.jwtToken) {
-      alert("You are not logged in!");
+      alert("Ви не ввійшли в систему!");
       return;
     }
     try {
@@ -39,18 +39,19 @@ const CartPage: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${currentUser.jwtToken}` // Use the JWT token for authorization
+          'Authorization': `Bearer ${currentUser.jwtToken}` 
         },
-        body: JSON.stringify({ items: cartItems.map(item => ({ productId: item.product.id, quantity: item.quantity, priceAtOrder: totalPrice })) })
+        body: JSON.stringify({ items: cartItems.map(item => ({ productId: item.product.id, quantity: item.quantity, priceAtOrder: item.product.price })) })
       });
       if (response.ok) {
         dispatch(clearCart());
-        alert("Order placed successfully!");
+        alert("Замовлення успішно оформлено!");
       } else {
-        alert("Failed to place order.");
+        const errorData = await response.text();
+        alert(`Не вдалося оформити замовлення: ${errorData}`);
       }
     } catch (error) {
-      console.error("Failed to place order:", error);
+      console.error("Не вдалося оформити замовлення:", error);
     }
   };
 

@@ -1,7 +1,14 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+
 
 const API_URL = 'http://localhost:8080/api/auth/';
+
+interface DecodedToken {
+  sub: string; 
+  role: string[]; 
+  exp: number;
+}
 
 export interface LoginResponse {
   jwtToken: string;
@@ -20,13 +27,16 @@ export interface RegisterRequest {
 }
 
 class AuthService {
-  login(loginRequest: LoginRequest): Promise<LoginResponse> {
+  login(loginRequest: LoginRequest): Promise<void> {
     return axios.post<LoginResponse>(API_URL + 'login', loginRequest)
       .then(response => {
         if (response.data.jwtToken) {
-          localStorage.setItem('user', JSON.stringify(response.data));
+          const decoded: DecodedToken = jwtDecode(response.data.jwtToken);
+          localStorage.setItem('user', JSON.stringify({
+            jwtToken: response.data.jwtToken,
+            roles: decoded.role,
+          }));
         }
-        return response.data;
       });
   }
 
@@ -34,9 +44,11 @@ class AuthService {
     return axios.post(API_URL + 'register', registerRequest);
   }
 
-  getCurrentUser(): LoginResponse | null {
+  getCurrentUser(): { jwtToken: string; roles: string[]; } | null {
     const userStr = localStorage.getItem('user');
-    if (userStr) return JSON.parse(userStr);
+    if (userStr) {
+      return JSON.parse(userStr);
+    }
     return null;
   }
 
@@ -44,10 +56,24 @@ class AuthService {
     return !!localStorage.getItem('user');
   }
 
+  isAdmin(): boolean {
+    const user = this.getCurrentUser();
+    return user ? user.roles.includes('ROLE_ADMIN') : false;
+  }
+
   logout(navigate: (path: string) => void): void {
     localStorage.removeItem('user');
     navigate('/login'); 
   }
+
+  updateToken(newToken: string): void {
+    const user = this.getCurrentUser();
+    if (user) {
+      user.jwtToken = newToken;
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }
+
 }
 
 export default new AuthService();

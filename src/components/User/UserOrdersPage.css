@@ -1,0 +1,49 @@
+.order-table-content {
+    margin: 70px 80px;
+    display: flex;
+    flex-direction: row; 
+    color: #19323C;
+    font-family: Arial, sans-serif; 
+}
+
+.table-content {
+    flex: 2 1;
+    border: solid;
+    border-radius: 10px;
+    border-color: #19323C;
+}
+
+.table-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-content th, .table-content td {
+    border: 1px solid #19323C;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-content th {
+    background-color: #f2f2f2;
+}
+
+.Modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.Overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
