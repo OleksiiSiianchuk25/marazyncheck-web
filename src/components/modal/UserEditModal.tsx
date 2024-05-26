@@ -37,16 +37,16 @@ const UserEditModal: React.FC<UserEditModalProps> = ({ isOpen, onClose, user, on
 
     return (
     <Modal isOpen={isOpen} onRequestClose={onClose} className="UserEditModal">
-        <h2>Edit User</h2>
+        <h2>Редагувати користувача</h2>
         <form onSubmit={handleSubmit}>
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Ім'я" />
             <br />
-            <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Електронна пошта" />
             <br />
             <input value={telegram} onChange={(e) => setTelegram(e.target.value)} placeholder="Telegram" />
             <br />
-            <button type="submit">Save</button>
-            <button onClick={onClose}>Cancel</button>
+            <button className='user-admin-edit-button' type="submit">Зберегти</button>
+            <button className='user-admin-edit-button' onClick={onClose}>Закрити</button>
         </form>
     </Modal>
 

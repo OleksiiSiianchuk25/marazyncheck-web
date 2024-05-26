@@ -6,40 +6,62 @@
     font-family: Arial, sans-serif; 
 }
 
-.product-content {
-    flex: 2 1;
+.content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-new-product-button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+    font-size: 16px;
+}
+
+.add-new-product-button:hover {
+    background-color: #A93F55;
+}
+
+.table-content {
+    flex: 1;
     border: solid;
     border-radius: 10px;
     border-color: #19323C;
     overflow: hidden;
 }
 
-table {
+.product-table {
     width: 100%;
-    border-collapse: collapse; /* Collapses borders */
+    border-collapse: collapse;
 }
 
-th, td {
+.product-table th, .product-table td {
     text-align: left;
-    padding: 12px 15px; /* Adds space around text */
-    border-bottom: 1px solid #ccc; /* Adds a bottom border to all cells */
+    padding: 12px 15px;
+    border-bottom: 1px solid #ccc;
 }
 
-th {
+.product-table th {
     background-color: #19323C;
     color: white;
-    cursor: pointer; /* Indicates that the header is clickable */
+    cursor: pointer;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2; /* Adds a light gray background to even rows */
+.product-table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-tr:hover {
-    background-color: #ddd; /* Adds a hover effect for rows */
+.product-table tr:hover {
+    background-color: #ddd;
 }
 
-button {
+.product-table-content-button {
     padding: 8px 16px;
     margin-right: 10px;
     border: none;
@@ -49,7 +71,7 @@ button {
     color: white;
 }
 
-button:hover {
+.product-table-content-button:hover {
     opacity: 0.8;
     background-color: #A93F55;
 }
@@ -60,11 +82,16 @@ button:hover {
     display: flex;
 }
 
-.pagination button {
-    background-color: #A93F55;
+.pagination-button {
+    background-color: #F2545B;
     margin: 0 5px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }
 
-.pagination button:hover {
-    background-color: #F2545B;
+.pagination-button:hover {
+    background-color: #A93F55;
 }

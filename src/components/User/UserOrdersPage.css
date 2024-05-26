@@ -1,4 +1,4 @@
-.order-table-content {
+.user-orders-table-content {
     margin: 70px 80px;
     display: flex;
     flex-direction: row; 
@@ -11,21 +11,67 @@
     border: solid;
     border-radius: 10px;
     border-color: #19323C;
+    overflow: hidden;
 }
 
-.table-content table {
+.user-order-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.table-content th, .table-content td {
-    border: 1px solid #19323C;
-    padding: 8px;
+.user-order-table th, .user-order-table td {
     text-align: left;
+    padding: 12px 15px; 
+    border-bottom: 1px solid #ccc; 
 }
 
-.table-content th {
+.user-order-table th {
+    background-color: #19323C;
+    color: white;
+    cursor: pointer;
+}
+
+.user-order-table tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+.user-order-table tr:hover {
+    background-color: #ddd;
+}
+
+.user-orders-table-content-button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+}
+
+.user-orders-table-content-button:hover {
+    opacity: 0.8;
+    background-color: #A93F55;
+}
+
+.pagination {
+    padding: 10px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pagination-button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+}
+
+.pagination-button:hover {
+    background-color: #A93F55;
 }
 
 .Modal {

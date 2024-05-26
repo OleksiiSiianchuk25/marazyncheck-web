@@ -99,8 +99,15 @@ input[type="checkbox"] + span {
     cursor: pointer;
     margin-top: 25px;
     max-width: 150px;
+    margin-right: 0;
 }
 
 .apply-button:hover {
     background-color: #A93F55; 
+}
+
+
+.product-quantity {
+    color: #7D8CA3;
+    
 }

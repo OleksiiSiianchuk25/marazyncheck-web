@@ -14,32 +14,32 @@
     overflow: hidden;
 }
 
-table {
+.order-table {
     width: 100%;
     border-collapse: collapse; 
 }
 
-th, td {
+.order-table th, .order-table td {
     text-align: left;
     padding: 12px 15px; 
     border-bottom: 1px solid #ccc; 
 }
 
-th {
+.order-table th {
     background-color: #19323C;
     color: white;
     cursor: pointer; /* Indicates that the header is clickable */
 }
 
-tr:nth-child(even) {
+.order-table tr:nth-child(even) {
     background-color: #f2f2f2; /* Adds a light gray background to even rows */
 }
 
-tr:hover {
+.order-table tr:hover {
     background-color: #ddd; /* Adds a hover effect for rows */
 }
 
-button {
+.order-table-content-button {
     padding: 8px 16px;
     margin-right: 10px;
     border: none;
@@ -49,7 +49,7 @@ button {
     color: white;
 }
 
-button:hover {
+.order-table-content-button:hover {
     opacity: 0.8;
     background-color: #A93F55;
 }
@@ -60,15 +60,32 @@ button:hover {
     display: flex;
 }
 
-.pagination button {
-    background-color: #A93F55;
+.pagination-button {
+    background-color: #F2545B;
     margin: 0 5px;
 }
 
-.pagination button:hover {
-    background-color: #F2545B;
+.pagination-button:hover {
+    background-color: #A93F55;
 }
 
+.modal-close-button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.modal-close-button:hover {
+    opacity: 0.8;
+    background-color: #A93F55;
+}
 
 .Modal {
     position: absolute;

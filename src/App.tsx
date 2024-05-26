@@ -18,6 +18,7 @@ import UsersAdminPage from './components/Admin/UsersAdminPage';
 import OrdersAdminPage from './components/Admin/OrdersAdminPage';
 import ProductAdminPage from './components/Admin/ProductAdminPage';
 import UserOrdersPage from './components/User/UserOrdersPage';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -27,7 +28,7 @@ const App: React.FC = () => {
     setSearchQuery(query);
   };
 
-  const noNavBarFooterPaths = ['/login', '/register'];
+  const noNavBarFooterPaths = ['/login', '/register', '/forgot-password'];
 
   return (
     <Provider store={store}>
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/" element={<ShopMain searchQuery={searchQuery} />} />
               <Route path="/faq" element={<Faq />} />

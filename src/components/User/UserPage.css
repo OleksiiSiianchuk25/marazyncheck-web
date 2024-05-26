@@ -8,7 +8,6 @@
 
 .info-content {
     flex: 2 1;
-    border: 1px solid #19323C;
     border-radius: 10px;
     padding: 20px; /* Added padding */
     background-color: #F7F7F7; /* Added background color */

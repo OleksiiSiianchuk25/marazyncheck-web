@@ -1,5 +1,3 @@
-// src/components/Admin/ProductAdminPage.tsx
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -92,35 +90,37 @@ const ProductAdminPage = () => {
   return (
     <div className="product-admin-page">
       <SideBar />
-      <div className='table-content'>
-        <button onClick={handleAddProduct}>Add New Product</button>
-        <table>
-          <thead>
-            <tr>
-              <th onClick={() => handleSort('name')}>Image</th>
-              <th onClick={() => handleSort('name')}>Name</th>
-              <th onClick={() => handleSort('price')}>Price</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map(product => (
-              <tr key={product.id}>
-                <td><img src={product.imageUrl} alt={product.name} style={{ width: '50px', height: '50px' }} /></td>
-                <td>{product.name}</td>
-                <td>₴{product.price.toFixed(2)}</td>
-                <td>
-                  <button onClick={() => handleEditProduct(product)}>Edit</button>
-                  <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
-                </td>
+      <div className='content'>
+        <button className='add-new-product-button' onClick={handleAddProduct}>Додати новий товар</button>
+        <div className='table-content'>
+          <table className='product-table'>
+            <thead>
+              <tr>
+                <th onClick={() => handleSort('name')}>Фото</th>
+                <th onClick={() => handleSort('name')}>Назва</th>
+                <th onClick={() => handleSort('price')}>Ціна</th>
+                <th>Дії</th>
               </tr>
+            </thead>
+            <tbody>
+              {products.map(product => (
+                <tr key={product.id}>
+                  <td><img src={product.imageUrl} alt={product.name} style={{ width: '50px', height: '50px' }} /></td>
+                  <td>{product.name}</td>
+                  <td>₴{product.price.toFixed(2)}</td>
+                  <td>
+                    <button className='product-table-content-button' onClick={() => handleEditProduct(product)}>Редагувати</button>
+                    <button className='product-table-content-button' onClick={() => handleDeleteProduct(product.id)}>Видалити</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className='pagination'>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button className='pagination-button' key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
             ))}
-          </tbody>
-        </table>
-        <div>
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
-          ))}
+          </div>
         </div>
       </div>
       {isModalOpen && (

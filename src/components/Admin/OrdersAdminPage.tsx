@@ -80,13 +80,13 @@ const OrdersAdminPage: React.FC = () => {
     <div className="order-table-content">
       <SideBar />
       <div className='table-content'>
-        <table>
+        <table className='order-table'>
           <thead>
             <tr>
               <th>Telegram</th>
-              <th>Date of Order</th>
-              <th>Total Price</th>
-              <th>Actions</th>
+              <th>Дата замовлення</th>
+              <th>Загальна сума</th>
+              <th>Дії</th>
             </tr>
           </thead>
           <tbody>
@@ -96,7 +96,7 @@ const OrdersAdminPage: React.FC = () => {
                 <td>{new Date(order.dateOfOrder).toLocaleDateString()}</td>
                 <td>₴{order.totalPrice.toFixed(2)}</td>
                 <td>
-                  <button onClick={() => fetchOrderDetails(order.orderId)}>View Details</button>
+                  <button className='order-table-content-button' onClick={() => fetchOrderDetails(order.orderId)}>Детальніше</button>
                 </td>
               </tr>
             ))}
@@ -109,25 +109,25 @@ const OrdersAdminPage: React.FC = () => {
           className="Modal"
           overlayClassName="Overlay"
         >
-          <h2>Order Details</h2>
+          <h2>Опис замовлення</h2>
           {currentOrder ? (
             <div>
-              <p>Date: {currentOrder.date}</p>
-              <p>Customer: {currentOrder.customer}</p>
-              <p>Items:</p>
+              <p>Покупець: {currentOrder.customer}</p>
+              <p>Дата замовлення: {currentOrder.date}</p>
+              <p>Товари:</p>
               <ul>
                 {currentOrder.orderItems.map((item, index) => (
                   <li key={index}>{item.name}, {item.quantity}, ₴{item.price.toFixed(2)}</li>
                 ))}
               </ul>
-              <p>Total Price: ₴{currentOrder.totalPrice.toFixed(2)}</p>
-              <button onClick={() => setIsModalOpen(false)}>Close</button>
+              <p>Загальна сума: ₴{currentOrder.totalPrice.toFixed(2)}</p>
+              <button className='modal-close-button' onClick={() => setIsModalOpen(false)}>Закрити</button>
             </div>
           ) : <p>Loading...</p>}
         </Modal>
-        <div>
+        <div className='pagination'>
           {Array.from({ length: totalPages }, (_, i) => (
-            <button key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
+            <button className="pagination-button" key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
           ))}
         </div>
       </div>

@@ -75,13 +75,13 @@ const UsersAdminPage: React.FC = () => {
     <div className="user-table-content">
       <SideBar />
       <div className='table-content'>
-        <table>
+        <table className='user-table'>
           <thead>
             <tr>
-              <th onClick={() => handleSort('email')}>Email</th>
-              <th onClick={() => handleSort('name')}>Name</th>
+              <th onClick={() => handleSort('email')}>Електронна пошта</th>
+              <th onClick={() => handleSort('name')}>Ім'я</th>
               <th onClick={() => handleSort('telegram')}>Telegram</th>
-              <th>Actions</th>
+              <th>Дії</th>
             </tr>
           </thead>
           <tbody>
@@ -91,16 +91,16 @@ const UsersAdminPage: React.FC = () => {
                 <td>{user.name}</td>
                 <td>{user.telegram}</td>
                 <td>
-                  <button onClick={() => handleEdit(user)}>Edit</button>
-                  <button onClick={() => handleDeleteByEmail(user.email)}>Delete</button>
+                  <button className='user-table-content-button' onClick={() => handleEdit(user)}>Редагувати</button>
+                  <button className='user-table-content-button' onClick={() => handleDeleteByEmail(user.email)}>Видалити</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div>
+        <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => (
-            <button key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
+            <button className="pagination-button" key={i} onClick={() => setCurrentPage(i)}>{i + 1}</button>
           ))}
         </div>
       </div>

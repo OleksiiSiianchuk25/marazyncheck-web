@@ -1,72 +1,89 @@
-.Modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .Modal h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .Modal form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .Modal form > div {
-    margin-bottom: 15px;
-  }
-  
-  .Modal form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .Modal form input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  .Modal form button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .Modal form button[type="submit"] {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .Modal form button[type="button"] {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .Modal form button[type="submit"]:hover {
-    background-color: #218838;
-  }
-  
-  .Modal form button[type="button"]:hover {
-    background-color: #c82333;
-  }
-  
-  .Modal form button:focus {
-    outline: none;
-  }
-  
+.ProductEditModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; 
+}
+
+.ProductEditModal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.modal-content {
+  max-height: calc(90vh - 40px);
+  overflow-y: auto;
+}
+
+.ProductEditModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.save-button {
+  background-color: #F2545B;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #A93F55;
+}
+
+.cancel-button {
+  background-color: #F2545B;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #A93F55;
+}
+
+.ProductEditModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}

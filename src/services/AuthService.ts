@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-
 const API_URL = 'http://localhost:8080/api/auth/';
 
 interface DecodedToken {
@@ -74,6 +73,18 @@ class AuthService {
     }
   }
 
+  // Add the following methods for forgot password functionality
+  requestPasswordReset(email: string): Promise<void> {
+    return axios.post(API_URL + 'forgot-password', { email });
+  }
+
+  verifyResetCode(email: string, code: string): Promise<void> {
+    return axios.post(API_URL + 'verify-code', { email, code });
+  }
+
+  resetPassword(email: string, code: string, newPassword: string): Promise<void> {
+    return axios.post(API_URL + 'reset-password', { email, code, newPassword });
+  }
 }
 
 export default new AuthService();

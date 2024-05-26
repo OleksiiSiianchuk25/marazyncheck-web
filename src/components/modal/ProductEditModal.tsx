@@ -1,5 +1,3 @@
-// src/components/modal/ProductEditModal.tsx
-
 import React, { useState, FormEvent } from 'react';
 import Modal from 'react-modal';
 import { Product } from '../../interfaces/Product';
@@ -40,36 +38,42 @@ const ProductEditModal: React.FC<ProductEditModalProps> = ({ isOpen, onClose, pr
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Edit Product"
+      className="ProductEditModal"
+      overlayClassName="ProductEditModalOverlay"
     >
-      <h2>{product ? 'Edit Product' : 'Add New Product'}</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input type="text" value={name} onChange={e => setName(e.target.value)} />
-        </div>
-        <div>
-          <label>Price (₴):</label>
-          <input type="number" value={price} onChange={e => setPrice(e.target.value)} min="0" step="0.01" />
-        </div>
-        <div>
-          <label>Image URL:</label>
-          <input type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
-        </div>
-        <div>
-          <label>Quantity:</label>
-          <input type="number" value={quantity} onChange={e => setQuantity(parseInt(e.target.value, 10))} min="0" />
-        </div>
-        <div>
-          <label>Category ID:</label>
-          <input type="number" value={categoryId} onChange={e => setCategoryId(parseInt(e.target.value, 10))} min="0" />
-        </div>
-        <div>
-          <label>Weight or Volume:</label>
-          <input type="number" value={weightOrVolume} onChange={e => setWeightOrVolume(e.target.value)} min="0" step="0.01" />
-        </div>
-        <button type="submit">Save</button>
-        <button type="button" onClick={onClose}>Cancel</button>
-      </form>
+      <h2>{product ? 'Редагувати товар' : 'Додати новий товар'}</h2>
+      <div className="modal-content">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Назва:</label>
+            <input type="text" value={name} onChange={e => setName(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Ціна (₴):</label>
+            <input type="number" value={price} onChange={e => setPrice(e.target.value)} min="0" step="0.01" />
+          </div>
+          <div className="form-group">
+            <label>Посилання на фото:</label>
+            <input type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Кількість:</label>
+            <input type="number" value={quantity} onChange={e => setQuantity(parseInt(e.target.value, 10))} min="0" />
+          </div>
+          <div className="form-group">
+            <label>ID категорії:</label>
+            <input type="number" value={categoryId} onChange={e => setCategoryId(parseInt(e.target.value, 10))} min="0" />
+          </div>
+          <div className="form-group">
+            <label>Вага/об'єм:</label>
+            <input type="number" value={weightOrVolume} onChange={e => setWeightOrVolume(e.target.value)} min="0" step="0.01" />
+          </div>
+          <div className="button-group">
+            <button type="submit" className="save-button">Зберегти</button>
+            <button type="button" className="cancel-button" onClick={onClose}>Закрити</button>
+          </div>
+        </form>
+      </div>
     </Modal>
   );
 };

@@ -77,8 +77,8 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
                 {filteredProducts.map(product => (
                     <div key={product.id} className="product-card">
                         <img className="product-image" src={product.imageUrl} alt={product.name} />
-                        <div>₴{product.price}</div>
-                        <div>{product.quantity > 0 ? 'У наявності' : 'Немає в наявності'}</div>
+                            <div>₴{product.price}</div>
+                            <div className="product-quantity">{product.quantity > 0 ? 'У наявності' : 'Немає в наявності'}</div>
                         <div>{product.name}</div>
                         <div>{product.weightOrVolume} {getUnit(product.categoryId)}</div>
                         <button 
