@@ -1,0 +1,55 @@
+.UserEditModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Reduced width */
+    max-width: 500px; /* Ensure it doesn't get too small on narrow screens */
+    background-color: rgb(255 255 255 / 100%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the items */
+}
+
+.UserEditModal h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.UserEditModal form {
+    width: 100%; /* Full width of modal */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.UserEditModal input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Make inputs expand to fill form */
+}
+
+.UserEditModal button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Add some margin on top */
+}
+
+.UserEditModal button[onClick] {
+    background-color: #d9534f;
+}
+
+.UserEditModal button[onClick]:hover {
+    background-color: #c9302c;
+}

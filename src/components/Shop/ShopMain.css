@@ -48,7 +48,6 @@ input[type="checkbox"] + span {
     padding-left: 5px;
 }
 
-
 .goods-column {
     flex: 3; /* Give more space to products */
     display: grid;
@@ -73,7 +72,7 @@ input[type="checkbox"] + span {
 }
 
 .buy-button {
-    background-color: #F2545B; /* A red button, could be your brand color */
+    background-color: #F2545B;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -82,5 +81,26 @@ input[type="checkbox"] + span {
 }
 
 .buy-button:hover {
-    background-color: #A93F55; /* Darker shade for hover effect */
+    background-color: #A93F55; 
+}
+
+.buy-button.disabled {
+    background-color: #7D8CA3;
+    color: white;
+    cursor: not-allowed;
+}
+
+.apply-button {
+    background-color: #F2545B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    max-width: 150px;
+}
+
+.apply-button:hover {
+    background-color: #A93F55; 
 }

@@ -1,0 +1,70 @@
+.user-table-content {
+    margin: 70px 80px;
+    display: flex;
+    flex-direction: row; 
+    color: #19323C;
+    font-family: Arial, sans-serif; 
+}
+
+.table-content {
+    flex: 2 1;
+    border: solid;
+    border-radius: 10px;
+    border-color: #19323C;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Collapses borders */
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 15px; /* Adds space around text */
+    border-bottom: 1px solid #ccc; /* Adds a bottom border to all cells */
+}
+
+th {
+    background-color: #19323C;
+    color: white;
+    cursor: pointer; /* Indicates that the header is clickable */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Adds a light gray background to even rows */
+}
+
+tr:hover {
+    background-color: #ddd; /* Adds a hover effect for rows */
+}
+
+.user-table-content button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F2545B;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+    background-color: #A93F55;
+}
+
+.pagination {
+    padding: 10px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pagination button {
+    background-color: #A93F55;
+    margin: 0 5px;
+}
+
+.pagination button:hover {
+    background-color: #F2545B;
+}

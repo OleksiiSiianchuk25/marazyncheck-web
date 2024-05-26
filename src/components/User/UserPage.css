@@ -8,16 +8,47 @@
 
 .info-content {
     flex: 2 1;
-    border: solid;
+    border: 1px solid #19323C;
     border-radius: 10px;
-    border-color: #19323C;
+    padding: 20px; /* Added padding */
+    background-color: #F7F7F7; /* Added background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
-.user-info {
-    padding: 0 15px;
+.user-info-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info-form input {
+    margin-bottom: 15px; /* Space between inputs */
+    padding: 10px; /* Input padding */
+    border: 1px solid #19323C;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.user-info-form input::placeholder {
+    color: #A9A9A9; /* Placeholder text color */
+}
+
+.user-info-form button {
+    padding: 10px 15px;
+    background-color: #F2545B;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-info-form button:hover {
+    background-color: #A93F55; /* Darker shade on hover */
 }
 
 .user-info-header {
     font-size: 30px;
     color: #19323C;
+    margin-bottom: 20px; /* Space below header */
 }

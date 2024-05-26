@@ -4,4 +4,6 @@ export interface Product {
     imageUrl: string;
     price: number;
     quantity: number;
+    categoryId: number;
+    weightOrVolume: number;
 }

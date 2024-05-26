@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/cart/cartSlice';
 import './ShopMain.css';
 import { getAllProducts } from '../../services/productService';
 import { Product } from '../../interfaces/Product';
@@ -12,6 +14,7 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
     const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
     const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
     const [tempSelectedCategories, setTempSelectedCategories] = useState<number[]>([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetchFilteredProducts();
@@ -43,6 +46,14 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
         setFilteredProducts(loadedProducts);
     };
 
+    const handleAddToCart = (product: Product) => {
+        dispatch(addToCart({ product, quantity: 1 }));
+    };
+
+    const getUnit = (categoryId: number) => {
+        return categoryId === 9 || categoryId === 10 ? 'л' : 'г';
+    };
+
     return (
         <div className="shop-main-content">
             <div className="filter-column">
@@ -66,9 +77,17 @@ const ShopMain: React.FC<ShopMainProps> = ({ searchQuery }) => {
                 {filteredProducts.map(product => (
                     <div key={product.id} className="product-card">
                         <img className="product-image" src={product.imageUrl} alt={product.name} />
-                        <div>{product.name}</div>
                         <div>₴{product.price}</div>
-                        <button className="buy-button">Купити</button>
+                        <div>{product.quantity > 0 ? 'У наявності' : 'Немає в наявності'}</div>
+                        <div>{product.name}</div>
+                        <div>{product.weightOrVolume} {getUnit(product.categoryId)}</div>
+                        <button 
+                            className={`buy-button ${product.quantity === 0 ? 'disabled' : ''}`}
+                            onClick={() => handleAddToCart(product)}
+                            disabled={product.quantity === 0}
+                        >
+                            Додати до кошика
+                        </button>
                     </div>
                 ))}
             </div>

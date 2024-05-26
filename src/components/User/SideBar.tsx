@@ -5,6 +5,7 @@ import AuthService from '../../services/AuthService';
 
 function SideBar() {
   const navigate = useNavigate();
+  const isAdmin = AuthService.isAdmin();
 
   const handleLogout = () => {
     AuthService.logout(navigate);
@@ -13,7 +14,15 @@ function SideBar() {
   return (
     <div className="sidebar">
       <Link className='link-sidebar' to="/user">Обліковий запис</Link>
-      <Link className='link-sidebar' to="/order-history">Історія замовлень</Link>
+      {isAdmin ? (
+        <>
+          <Link className='link-sidebar' to="/admin/users">Користувачі</Link>
+          <Link className='link-sidebar' to="/admin/orders">Замовлення</Link>
+          <Link className='link-sidebar' to="/admin/products">Товари</Link>
+        </>
+      ) : (
+        <Link className='link-sidebar' to="/order-history">Історія замовлень</Link>
+      )}
       <button className='link-sidebar-button' onClick={handleLogout}>Вийти з аккаунта</button>
     </div>
   );
